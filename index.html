@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikerVai – Smarter Motorcycle Management</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #111;
+            background-color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom right, #0a0a0a, #1d1d1d);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .cta-btn {
+            margin-top: 25px;
+            padding: 14px 32px;
+            background: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #ff5722;
+        }
+
+        /* Feature Section */
+        .features {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.3rem;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .feature-card {
+            padding: 25px;
+            border-radius: 12px;
+            background: #f7f7f7;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 70px 20px;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #ff4500;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>BikerVai</h1>
+        <p>Your all-in-one motorcycle service, maintenance, and ride management companion. 
+            Make every ride smarter, safer, and more organized.</p>
+        <a href="#features"><button class="cta-btn">Explore Features</button></a>
+    </div>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Smart Service Tracking</h3>
+                <p>Track servicing schedules, maintenance history, and get reminders before deadlines.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Part Replacement Log</h3>
+                <p>Keep records of replaced parts so you never forget when to change them again.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Fuel Cost Analytics</h3>
+                <p>Monitor mileage, fuel consumption trends, and spending patterns.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Ride Insights</h3>
+                <p>Record trip details and performance metrics for better bike management.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Cloud Backup</h3>
+                <p>Securely store your bike data across devices using cloud synchronization.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <h2>About BikerVai</h2>
+        <p>
+            BikerVai is designed for riders who want a smarter way to manage their motorcycle life.
+            Whether it is tracking your bike servicing, recording expenses, logging rides, or planning your next upgrade — 
+            BikerVai keeps everything in one place.
+            Built for modern riders, powered by technology, and inspired by the passion for biking.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © <span id="year"></span> BikerVai. All Rights Reserved.
+        <br>
+        Developed by <a href="https://github.com/onuvob" target="_blank">Onuvob</a>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
