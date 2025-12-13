@@ -3,187 +3,584 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BikerVai – Smarter Motorcycle Management</title>
-
+    <meta name="description" content="Biker Vai - Your trusted bike service pre-booking platform. Coming Soon!">
+    <meta name="keywords" content="bike service, motorcycle maintenance, bike repair, pre-booking">
+    <meta name="author" content="Biker Vai">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏍️</text></svg>">
+    <title>Biker Vai - Coming Soon | Bike Service Pre-Booking</title>
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            color: #111;
-            background-color: #ffffff;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to bottom right, #0a0a0a, #1d1d1d);
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            position: relative;
         }
 
-        .hero h1 {
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bike-icon {
+            position: absolute;
             font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+            opacity: 0.1;
+            animation: float 20s infinite;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: auto;
+        .bike-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .bike-icon:nth-child(2) { top: 20%; right: 20%; animation-delay: 2s; }
+        .bike-icon:nth-child(3) { bottom: 15%; left: 25%; animation-delay: 4s; }
+        .bike-icon:nth-child(4) { top: 60%; right: 15%; animation-delay: 6s; }
+        .bike-icon:nth-child(5) { bottom: 30%; right: 35%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(-60px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-30px) rotate(3deg);
+            }
         }
 
-        .cta-btn {
-            margin-top: 25px;
-            padding: 14px 32px;
-            background: #ff4500;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s;
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
         }
 
-        .cta-btn:hover {
-            background: #ff5722;
-        }
-
-        /* Feature Section */
-        .features {
-            padding: 60px 20px;
+        .content {
             text-align: center;
+            max-width: 900px;
+            width: 100%;
         }
 
-        .features h2 {
-            font-size: 2.3rem;
-            margin-bottom: 40px;
+        /* Logo/Brand */
+        .brand {
+            margin-bottom: 2rem;
+            animation: slideDown 1s ease-out;
         }
 
-        .feature-grid {
+        .logo {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.8));
+            }
+        }
+
+        /* Main Title */
+        .main-title {
+            font-size: 3rem;
+            color: white;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem 2.5rem;
+            min-width: 140px;
+            transition: all 0.3s;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .countdown-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features */
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: auto;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            animation: fadeIn 2.5s ease-out;
         }
 
         .feature-card {
-            padding: 25px;
-            border-radius: 12px;
-            background: #f7f7f7;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
         }
 
         .feature-card:hover {
+            background: rgba(255, 255, 255, 0.12);
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
         }
 
-        .feature-card h3 {
-            margin-bottom: 10px;
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        /* About Section */
-        .about {
-            padding: 70px 20px;
-            background: #fafafa;
-            text-align: center;
+        .feature-title {
+            font-size: 1.3rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
-        .about h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            max-width: 900px;
-            margin: auto;
-            font-size: 1.1rem;
+        .feature-desc {
+            font-size: 0.95rem;
+            color: #b0b0b0;
             line-height: 1.6;
+        }
+
+        /* Notify Form */
+        .notify-section {
+            margin: 4rem 0 2rem 0;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .notify-title {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .notify-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .notify-input {
+            flex: 1;
+            min-width: 280px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .notify-input::placeholder {
+            color: #a0a0a0;
+        }
+
+        .notify-input:focus {
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .notify-btn {
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .notify-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
         /* Footer */
         .footer {
-            background: #111;
-            color: #ccc;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 40px;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #808080;
+            font-size: 0.9rem;
         }
 
-        .footer a {
-            color: #ff4500;
-            text-decoration: none;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2.5rem;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                padding: 1.5rem;
+                min-width: 100px;
+            }
+
+            .countdown-value {
+                font-size: 2.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .notify-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .notify-input {
+                min-width: 100%;
+            }
+
+            .notify-btn {
+                width: 100%;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 100%;
+            animation: loading 2s ease-in-out infinite;
+            width: 60%;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 0%;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <!-- HERO -->
-    <div class="hero">
-        <h1>BikerVai</h1>
-        <p>Your all-in-one motorcycle service, maintenance, and ride management companion. 
-            Make every ride smarter, safer, and more organized.</p>
-        <a href="#features"><button class="cta-btn">Explore Features</button></a>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bike-icon">🏍️</div>
+        <div class="bike-icon">🏍️</div>
+        <div class="bike-icon">🏍️</div>
+        <div class="bike-icon">🏍️</div>
+        <div class="bike-icon">🏍️</div>
     </div>
 
-    <!-- FEATURES -->
-    <section id="features" class="features">
-        <h2>Key Features</h2>
-        <div class="feature-grid">
-
-            <div class="feature-card">
-                <h3>Smart Service Tracking</h3>
-                <p>Track servicing schedules, maintenance history, and get reminders before deadlines.</p>
+    <!-- Main Container -->
+    <div class="container">
+        <div class="content">
+            <!-- Brand -->
+            <div class="brand">
+                <div class="logo">🏍️</div>
+                <h1 class="brand-name">Biker Vai</h1>
+                <p class="tagline">Your Trusted Bike Service Partner</p>
             </div>
 
-            <div class="feature-card">
-                <h3>Part Replacement Log</h3>
-                <p>Keep records of replaced parts so you never forget when to change them again.</p>
+            <!-- Main Title -->
+            <h2 class="main-title">We're Launching Soon!</h2>
+            <p class="subtitle">Get ready for the ultimate bike service pre-booking experience. Your ride deserves the best care!</p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">30</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">12</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">45</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">30</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <h3>Fuel Cost Analytics</h3>
-                <p>Monitor mileage, fuel consumption trends, and spending patterns.</p>
+            <!-- Features -->
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3 class="feature-title">Easy Booking</h3>
+                    <p class="feature-desc">Pre-book your bike service in just a few clicks. No more waiting in line!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Expert Mechanics</h3>
+                    <p class="feature-desc">Certified and experienced mechanics to handle all your bike needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Fast Service</h3>
+                    <p class="feature-desc">Quick turnaround time without compromising on quality.</p>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <h3>Ride Insights</h3>
-                <p>Record trip details and performance metrics for better bike management.</p>
+            <!-- Notify Me Section -->
+            <div class="notify-section">
+                <h3 class="notify-title">Get Notified When We Launch</h3>
+                <form class="notify-form" onsubmit="handleSubmit(event)">
+                    <input 
+                        type="email" 
+                        class="notify-input" 
+                        placeholder="Enter your email address" 
+                        required
+                        id="emailInput">
+                    <button type="submit" class="notify-btn">Notify Me</button>
+                </form>
             </div>
 
-            <div class="feature-card">
-                <h3>Cloud Backup</h3>
-                <p>Securely store your bike data across devices using cloud synchronization.</p>
+            <!-- Loading Bar -->
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
 
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="#" class="social-icon" title="Facebook">📘</a>
+                <a href="#" class="social-icon" title="Instagram">📷</a>
+                <a href="#" class="social-icon" title="Twitter">🐦</a>
+                <a href="#" class="social-icon" title="WhatsApp">💬</a>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>&copy; 2024 Biker Vai. All rights reserved. | Revolutionizing Bike Service</p>
+            </div>
         </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about">
-        <h2>About BikerVai</h2>
-        <p>
-            BikerVai is designed for riders who want a smarter way to manage their motorcycle life.
-            Whether it is tracking your bike servicing, recording expenses, logging rides, or planning your next upgrade — 
-            BikerVai keeps everything in one place.
-            Built for modern riders, powered by technology, and inspired by the passion for biking.
-        </p>
-    </section>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        © <span id="year"></span> BikerVai. All Rights Reserved.
-        <br>
-        Developed by <a href="https://onuvob.github.io/onuvob/" target="_blank">Onuvob</a>
     </div>
 
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Set launch date (30 days from now)
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 30);
+            
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            alert(`Thank you! We'll notify you at ${email} when we launch! 🏍️`);
+            document.getElementById('emailInput').value = '';
+        }
+
+        // Add smooth scroll effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
